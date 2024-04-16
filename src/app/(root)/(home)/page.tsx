@@ -3,9 +3,9 @@ import React from 'react'
 
 const Home = () => {
   return (
-    <main>
+    <section className='flex size-full flex-col gap-10 text-white'>
       Home
-    </main>
+      </section>
   )
 }
 
