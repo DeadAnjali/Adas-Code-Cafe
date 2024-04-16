@@ -1,7 +1,5 @@
 'use client'
 import React, { useEffect, useState } from "react";
-import Image from "../assets/image.png";
-import Logo from "../assets/logo.png";
 import { FaEye } from "react-icons/fa6";
 import { FaEyeSlash } from "react-icons/fa6";
 import "@/app/globals.css";
@@ -23,10 +21,11 @@ const Login = () => {
   })
   const LoginUp=async()=>{
 
+
   }
 
   return (
-    <div className="register-main">
+    <div className="register-main bg-blue-500">
       <div className="register-left">
         <img src="../assets/image.png" className="h-full " alt="" />
       </div>

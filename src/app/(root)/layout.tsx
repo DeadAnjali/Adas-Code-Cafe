@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 
-const Rootlayout = ({children}:{children:ReactNode}) => {
+const Rootlayout = ({children}:any) => {
   return (
     <main >
       {children}

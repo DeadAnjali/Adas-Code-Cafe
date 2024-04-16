@@ -1,7 +1,5 @@
 'use client'
 import React, { useEffect, useState } from "react";
-import Image from "../assets/image.png";
-import Logo from "../assets/logo.png";
 import { FaEye } from "react-icons/fa6";
 import { FaEyeSlash } from "react-icons/fa6";
 import "@/app/globals.css";
@@ -13,6 +11,7 @@ import { useRouter } from "next/navigation";
 
 
 const Login = () => {
+  let cnfpas;
   const [ showPassword, setShowPassword ] = useState(false);
   const [user, setUser]=useState({
     name:'',
@@ -21,58 +20,50 @@ const Login = () => {
     password:'',
     username:'',
   })
+  const router=useRouter();
+
+  const[buttonDisabled,setbuttonDisabled]=useState(false);
+  const [loading,setLoading]=useState(false)
+
   const SignUp=async()=>{
+    try {
+      setLoading(true);
+      let usern=user.name+"@"+user.regno;
+      setUser({...user,username:usern});
+      const response=await axios.post("/api/users/register",user);
+      console.log("SignUp success"+response.data);
+      //to push the user to a specicfic route
+      router.push("/login");
 
-  }
-
-  const handleRegisterSubmit = async (e) => {
-    e.preventDefault();
-    let name = e.target.name.value;
-    let lastname = e.target.lastname.value;
-    let email = e.target.email.value;
-    let password = e.target.password.value;
-    let confirmPassword = e.target.confirmPassword.value;
-
-    if(name.length > 0 && lastname.length > 0 && email.length > 0 && password.length > 0 && confirmPassword.length > 0){
-
-      if(password === confirmPassword){
-        const formData = {
-          username: name + " " + lastname,
-          email,
-          password
-        };
-        try{
-        const response = await axios.post("http://localhost:3000/api/v1/register", formData);
-         toast.success("Registration successfull");
-       }catch(err){
-         toast.error(err.message);
-       }
-      }else{
-        toast.error("Passwords don't match");
-      }
-    
-
-    }else{
-      toast.error("Please fill all inputs");
+    } catch (error) {
+      console.log("SignUP failed");
+      toast.error(error.message);
+    }finally{
+      setLoading(false);
     }
-
-
   }
-
+  
+  /*
+  useEffect(()=>{
+    if(user.email.length>0 && user.password.length>0 && user.name.length>0&&user.regno.length>0){
+      setbuttonDisabled(false);
+    }
+    else{
+      setbuttonDisabled(true);
+    }
+  }
+  ,[user])*/
 
   return (
     <div className="register-main">
       <div className="register-left">
-        <img src="../assets/image.png" className="h-full " alt="" />
+        <p>I am {loading?"Doing work":"Completed"}</p>
       </div>
       <div className="register-right">
         <div className="register-right-container">
-          <div className="register-logo">
-            <img src={Logo} alt="" />
-          </div>
           <div className="register-center">
             <h2>Join Ada's code Cafe!</h2>
-            <form onSubmit={handleRegisterSubmit}>
+            <form onSubmit={SignUp}>
             <input type="text" placeholder="Name" name="name" required={true} value={user.name}
             onChange={(e)=>setUser({
                 ...user,name:e.target.value
@@ -96,7 +87,7 @@ const Login = () => {
                 
               </div>
               <div className="pass-input-div">
-                <input type={showPassword ? "text" : "password"} placeholder="Confirm Password" name="confirmPassword" required={true} />
+                <input type={showPassword ? "text" : "password"} placeholder="Confirm Password" name="confirmPassword" required={true} value={cnfpas}/>
                 {showPassword ? <FaEyeSlash onClick={() => {setShowPassword(!showPassword)}} /> : <FaEye onClick={() => {setShowPassword(!showPassword)}} />}
                 
               </div>
@@ -107,7 +98,7 @@ const Login = () => {
           </div>
 
           <p className="login-bottom-p">
-            Already have an account? <Link href="/login">Login</Link>
+            Already have an account? <Link href="/login">{buttonDisabled?"No SignUp":"SignUp"}</Link>
           </p>
         </div>
       </div>

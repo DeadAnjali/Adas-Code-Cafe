@@ -2,36 +2,36 @@ export const sidebarLinks=[
     {
         label:'Home',
         route:'/',
-        imgurl:'./icons/home.svg'
+        imgurl:'./icons/Home.svg'
     },
     {
         label:'Upcoming Events',
         route:'/upcoming',
-        imgurl:'./icons/home.svg'
+        imgurl:'./icons/upcoming.svg'
     },
     {
         label:'Previous',
         route:'/previous',
-        imgurl:'./icons/home.svg'
+        imgurl:'./icons/previous.svg'
     },
     {
         label:'Recordings',
         route:'/recordings',
-        imgurl:'./icons/home.svg'
+        imgurl:'./icons/recordings.svg'
     },
     {
         label:'Personal Room',
         route:'/personal-room',
-        imgurl:'./icons/home.svg'
+        imgurl:'./icons/Video.svg'
     },
     {
         label:'Blogs',
         route:'/blogs',
-        imgurl:'./icons/blog.svg'
+        imgurl:'./icons/play.svg'
     },
     {
         label:'Live Coder',
         route:'/code-editor',
-        imgurl:'./icons/code.svg'
+        imgurl:'./icons/share.svg'
     },
 ]

@@ -1,11 +1,15 @@
 import { verify } from "crypto";
-import mongoose from mongoose;
-import bcrypt from bcrypt;
+import mongoose from 'mongoose';
+import bcrypt from 'bcrypt';
 
 const userSchema=new mongoose.Schema({
     name:{
         required:[true,"First name is required"],
         type:String,
+    },
+    regno:{
+        type:String,
+        required:[true,"Registration No. is required"],
     },
     profilePhoto:{
         type:String,
@@ -14,6 +18,9 @@ const userSchema=new mongoose.Schema({
     email:{
         type:String,
         required:[true,"email is required"],
+    },
+    username:{
+        type:String
     },
     bio:{
         type:String,
@@ -96,18 +103,7 @@ const userSchema=new mongoose.Schema({
     },
     timestamps:true,
 })
-//it has two arguments
-userSchema.pre("save",async function(next){
-    const salt=await bcrypt.genSalt(10);
-    this.password=await bcrypt.hash(this.password,salt);
-    next();
-})
 
-userSchema.methods.isPasswordMatched= async function (enterpass){
-    return this.password===enterpass;
-};
-//we make model of a schema through
-const User=mongoose.model("User",userSchema);
+const User = mongoose.models.users || mongoose.model("users", userSchema);
 
-
-module.exports=User;//gotta export stuff for it to work
+export default User;
