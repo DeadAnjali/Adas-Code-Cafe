@@ -31,9 +31,6 @@ const Login = () => {
       </div>
       <div className="register-right">
         <div className="register-right-container">
-          <div className="register-logo">
-            <img src={Logo} alt="" />
-          </div>
           <div className="register-center">
             <h2>Login here Ada's code Cafe!</h2>
             <form onSubmit={LoginUp}>

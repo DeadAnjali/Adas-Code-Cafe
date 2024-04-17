@@ -25,7 +25,8 @@ const Login = () => {
   const[buttonDisabled,setbuttonDisabled]=useState(false);
   const [loading,setLoading]=useState(false)
 
-  const SignUp=async()=>{
+  const SignUp=async(e)=>{
+    e.preventDefault();
     try {
       setLoading(true);
       let usern=user.name+"@"+user.regno;
@@ -63,7 +64,7 @@ const Login = () => {
         <div className="register-right-container">
           <div className="register-center">
             <h2>Join Ada's code Cafe!</h2>
-            <form onSubmit={SignUp}>
+            <form onSubmit={SignUp} method="post">
             <input type="text" placeholder="Name" name="name" required={true} value={user.name}
             onChange={(e)=>setUser({
                 ...user,name:e.target.value
