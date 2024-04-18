@@ -15,11 +15,6 @@ export const sidebarLinks=[
         imgurl:'./icons/previous.svg'
     },
     {
-        label:'Recordings',
-        route:'/recordings',
-        imgurl:'./icons/recordings.svg'
-    },
-    {
         label:'Personal Room',
         route:'/personal-room',
         imgurl:'./icons/Video.svg'

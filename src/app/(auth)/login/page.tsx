@@ -5,35 +5,58 @@ import { FaEyeSlash } from "react-icons/fa6";
 import "@/app/globals.css";
 import Link from 'next/link';
 import axios from "axios";
-import { toast } from "react-toastify";
+import { ToastContainer,toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 
 
 
 const Login = () => {
   const [ showPassword, setShowPassword ] = useState(false);
-  const [user, setUser]=useState({
-    name:'',
-    regno:'',
-    email:'',
-    password:'',
-    username:'',
-  })
-  const LoginUp=async()=>{
+  const router = useRouter();
+    const [user, setUser] = React.useState({
+        email: "",
+        password: "",
+       
+    })
+    const [buttonDisabled, setButtonDisabled] = React.useState(false);
+    const [loading, setLoading] = React.useState(false);
 
 
-  }
+    const LoginUp = async (e:any) => {
+      e.preventDefault();
+        try {
+            setLoading(true);
+            const response = await axios.post("/api/users/login", user);
+            console.log("Login success", response.data);
+            toast.success("Login success");
+            router.push("/");
+        } catch (error:any) {
+            console.log("Login failed", error.message);
+            toast.error(error.message);
+        } finally{
+        setLoading(false);
+        }
+    }
+
+    useEffect(() => {
+        if(user.email.length > 0 && user.password.length > 0) {
+            setButtonDisabled(false);
+        } else{
+            setButtonDisabled(true);
+        }
+    }, [user]);
+  
 
   return (
     <div className="register-main bg-blue-500">
       <div className="register-left">
-        <img src="../assets/image.png" className="h-full " alt="" />
+      <p>I am {loading?"Doing work":"Completed"}</p>
       </div>
       <div className="register-right">
         <div className="register-right-container">
           <div className="register-center">
             <h2>Login here Ada's code Cafe!</h2>
-            <form onSubmit={LoginUp}>
+            <form onSubmit={LoginUp} method="post">
               <input type="email" placeholder="Email" name="email" required={true} value={user.email}
               onChange={(e)=>setUser({
                 ...user,email:e.target.value
