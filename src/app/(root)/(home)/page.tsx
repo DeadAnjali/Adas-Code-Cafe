@@ -1,12 +1,20 @@
 import React from 'react'
 //this shit is renderingggggggggggg
 import MeetingTypeList from '@/components/MeetingTypeList'
+import { checkRole } from '@/utils/roles';
+import { redirect } from 'next/navigation';
 
 const Home = () => {
   const now = new Date();
 
   const time = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
   const date = (new Intl.DateTimeFormat('en-US', { dateStyle: 'full' })).format(now);
+
+  //Redirects if the role is of an admin
+  if (checkRole("admin")) {
+    redirect("/admin/dashboard");
+  }
+
   return (
     <section className="flex size-full flex-col gap-3 text-white">
       <div className="h-[303px] w-full rounded-[20px] bg-hero bg-cover">
