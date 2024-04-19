@@ -1,4 +1,4 @@
-import { connect } from "@/dbconfig/dbconfig";
+/*import { connect } from "@/dbconfig/dbconfig";
 import User from '@/model/userModel'
 import { NextRequest,NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
@@ -43,3 +43,4 @@ export async function POST(request:NextRequest) {
         },{status:500})
     }
 }
+*/
