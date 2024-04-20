@@ -2,7 +2,7 @@ export const sidebarLinks=[
     {
         label:'Home',
         route:'/',
-        imgurl:'./icons/Home.svg'
+        imgurl:'./icons/Home.svg',
     },
     {
         label:'Upcoming Events',
@@ -33,6 +33,18 @@ export const sidebarLinks=[
         label:'Live Coder',
         route:'/code-editor',
         imgurl:'./icons/share.svg'
+    },
+]
+export const sidebarLinksAdmin=[
+    {
+        label:'Home',
+        route:'/admin/dashboard',
+        imgurl:'../icons/Home.svg',
+    },
+    {
+        label:'Add Event',
+        route:'/admin/event',
+        imgurl:'../icons/upcoming.svg'
     },
 ]
 
