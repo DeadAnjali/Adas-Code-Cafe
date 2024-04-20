@@ -5,11 +5,12 @@ import { useRouter } from 'next/navigation';
 
 import HomeCard from './HomeCard';
 import MeetingModal from './MeetingModal';
+import AddOrganisation from './AddOrganisation'
 
 
 const MeetingTypeList = () => {
-    const [meetingState, setMeetingState] = useState<
-    'isScheduleMeeting' | 'isJoiningMeeting' | 'isInstantMeeting' | undefined>(undefined);
+    const [action, setAction] = useState<
+    'isScheduleMeeting' | 'isCreatingTeam' | 'isInstantMeeting' | undefined>(undefined);
     const router=useRouter();
     const createMeeting=()=>{}
 
@@ -18,19 +19,19 @@ const MeetingTypeList = () => {
       <HomeCard
         title="New Meeting"
         description="Start an instant meeting"
-        handleClick={() => setMeetingState('isInstantMeeting')}
+        handleClick={() => setAction('isInstantMeeting')}
       />
       <HomeCard
-        title="Join Meeting"
-        description="via invitation link"
+        title="Create Your Team"
+        description="Add upto 5 memebers"
         className="bg-blue-1"
-        handleClick={() => setMeetingState('isJoiningMeeting')}
+        handleClick={() => setAction('isCreatingTeam')}
       />
       <HomeCard
         title="Schedule Meeting"
         description="Plan your meeting"
         className="bg-purple-1"
-        handleClick={() => setMeetingState('isScheduleMeeting')}
+        handleClick={() => setAction('isScheduleMeeting')}
       />
       <HomeCard
         title="View Recordings"
@@ -39,13 +40,22 @@ const MeetingTypeList = () => {
         handleClick={() => router.push('/recordings')}
       />
       <MeetingModal
-        isOpen={meetingState === 'isInstantMeeting'}
-        onClose={() => setMeetingState(undefined)}
+        isOpen={action === 'isInstantMeeting'}
+        onClose={() => setAction(undefined)}
         title="Start an Instant Meeting"
         className="text-center"
         buttonText="Start Meeting"
         handleClick={createMeeting}
       />
+      <AddOrganisation
+        isOpen={action === 'isCreatingTeam'}
+        onClose={() => setAction(undefined)}
+        title="Create Your Team"
+        className="text-center"
+        buttonText="Start Meeting"
+        handleClick={createMeeting}
+      />
+
     </section>
   )
 }

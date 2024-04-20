@@ -298,3 +298,28 @@ form button[type='submit'] {
 .register-bottom-p a:hover{
   text-decoration: underline;
 }
+.cl-internal-4b57d1{
+  color: #F0F0F0;
+}
+.cl-internal-15di0mo{
+  color:#F0F0F0;
+}
+.cl-internal-3gh7hq{
+  color:#E9E9E9
+}
+.cl-internal-1kgb7nb,.cl-internal-1nn89fl,.cl-internal-cqd8dz,.cl-notificationBadge,.cl-organizationSwitcherInvitationAcceptButton{
+  color: hsl(0deg 0% 100%);
+}
+.cl-internal-1kgb7nb:hover{
+  color: hsl(0deg 0% 100%);
+}
+path{
+  color:aliceblue;
+}
+.cl-navbar{
+  color: aliceblue;
+}
+.cl-selectButton{
+  color: hsl(0deg 0% 100%);
+  border: #F0F0F0;
+}
