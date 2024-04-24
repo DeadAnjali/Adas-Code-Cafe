@@ -8,11 +8,20 @@ export default defineSchema({
         desc:v.string(),
         launchDate:v.string(),
         endDate:v.string(),
-        Winner:v.string(),
-    })
-    .index("by_domain",["domain"])
+        winner:v.string(),
+        adminname:v.string(),
+        numOfReg:v.number()
+    }).index("by_domain",["domain"])
     .searchIndex("search_title",{
         searchField:"title",
-        filterFields:["domain"]
+        filterFields:["domain"],
+    }),
+    
+    scholarship:defineTable({
+        title:v.string(),
+        company:v.string(),
+        appliDate:v.string(),
+        endDate:v.string(),
+        amount:v.number()
     })
 })

@@ -1,9 +1,10 @@
 import React from 'react'
+import {AdminEvent} from '@/components/AdminEventCard'
 
 const Event = () => {
   return (
-    <div>
-      This is events page
+    <div className=''>
+      <AdminEvent />
     </div>
   )
 }
