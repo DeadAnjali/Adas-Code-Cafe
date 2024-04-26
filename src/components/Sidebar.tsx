@@ -1,5 +1,5 @@
 'use client'
-//the pathname function can only be used on client side
+
 import React from 'react'
 import { sidebarLinks, sidebarLinksAdmin } from '../../constants'
 import { usePathname } from 'next/navigation'
@@ -13,7 +13,7 @@ import { useUser } from '@clerk/nextjs'
 const Sidebar = () => {
     const pathname =usePathname();//checks which route we currently are on
   return (
-    <section className='sticky left-0 top-0 flex h-screen w-fit flex-col  justify-between bg-dark-2 p-6 pt-28 text-white max-sm:hidden lg:w-[264px]'>
+    <section className='sticky left-0 top-0 flex h-screen w-fit flex-col  justify-between bg-dark-1 p-6 pt-28 text-white max-sm:hidden lg:w-[264px]'>
         <div className='flex flex-1 flex-col gap-6'>
             {sidebarLinks.map((item) => {
           const isActive = pathname === item.route || pathname.startsWith(`${item.route}/`);

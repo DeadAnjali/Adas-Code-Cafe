@@ -21,7 +21,7 @@ const Navbar = () => {
     </Link>
     <div className="flex-between gap-5">
       <OrganizationSwitcher hidePersonal/>
-      <SignedIn>
+        <SignedIn>
           <UserButton afterSignOutUrl="/sign-in" />
         </SignedIn>
       <MobileNav />
