@@ -43,6 +43,11 @@ const config = {
         yellow: {
           1: '#F9A90E',
         },
+        pink: {
+          1: '#A21545',
+          2:'#D11B59',
+          3:'#FF1D58'
+        },
       },
       keyframes: {
         "accordion-down": {

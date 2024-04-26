@@ -33,12 +33,13 @@ import {
 
 import { useMutation } from "convex/react"
 import { api } from "../../convex/_generated/api"
+import { useApiMutation } from "../../convex/use-api-mutation"
 
 
 export function AdminEvent() {
     const [date, setDate] = React.useState<Date>()
 
-    const create=useMutation(api.event.create);
+    const {mutate:create,pending}=useApiMutation(api.event.create);
     const [event, setEvent] = React.useState({
         title:"",
         domain:"",
@@ -88,7 +89,7 @@ export function AdminEvent() {
       </CardContent>
       <CardFooter className="flex justify-between">
         <Button variant="outline">Cancel</Button>
-        <Button onClick={AddEvent}>Deploy</Button>
+        <Button  disabled={pending}  onClick={AddEvent}>Deploy</Button>
       </CardFooter>
     </Card>
   )

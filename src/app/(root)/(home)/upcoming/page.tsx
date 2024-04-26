@@ -1,27 +1,40 @@
 "use client"
 import { useQuery } from 'convex/react'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { api } from '../../../../../convex/_generated/api'
+import { LoaderIcon } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import Register from '@/components/Register'
 
 const Upcoming = () => {
-  const domain="NEXT";
-  const data=useQuery(api.events.get,{domain})
+  const data=useQuery(api.events.get);
+  if(data==undefined){
+    return <div className='text-white'>
+      I am loading
+    </div>
+  }
+  const n=data.length;
   return (
     <section className="flex size-full flex-col gap-3 text-white ">
       <div className='flex flex-row gap-3'>
         <div className='flex basis-1/2 bg-dark-3 flex-col justify-between p-5 h-60 rounded-[14px]'>
-              <h2 className="glassmorphism max-w-[273px] rounded py-2 text-center text-base font-normal">
-                Upcoming Meeting at: 12:30 PM
+              <h2 className="glassmorphism max-w-[240px] rounded py-2 text-center text-base font-normal">
+                {data[n-1].launchDate} to {data[n-1].endDate}
               </h2>
               <div className="flex flex-col gap-2">
-                <h1 className="text-4xl font-extrabold lg:text-7xl">time</h1>
-                <p className="text-lg font-medium text-sky-1 lg:text-2xl">date</p>
+                <h1 className="text-4xl font-extrabold lg:text-5xl">{data[n-1].title}</h1>
+                <div className='flex flex-row justify-between'>
+                    <p className="text-lg font-medium text-sky-1 lg:text-2xl">{data[n-1].domain}</p>
+                    <Register/>
+                </div>
+                
               </div>
+              
         </div>
         <div className='flex basis-1/2 flex-col gap-3'>
               <div className='flex basis-1/2  flex-row gap-x-3'>
                   <div className='flex basis-1/2 bg-dark-4 rounded-[14px] '>
-                    ghjk
+                    dsjcbjsdcn
                   </div>
                   <div className='flex basis-1/2 bg-dark-4 rounded-[14px]'>
                     fghj

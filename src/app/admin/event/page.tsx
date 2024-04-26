@@ -13,13 +13,13 @@ const Event = () => {
         fhjbsjv
       </div>
       <div className='flex flex-row gap-3'>
-        <div className='flex basis-1/3 bg-dark-3 flex-col justify-between p-5 h-28 rounded-[14px]'>
+        <div className='flex basis-1/3 bg-pink-3 flex-col justify-between p-5 h-28 rounded-[14px]'>
               jahdbjabfj
         </div>
-        <div className='flex basis-1/3 bg-dark-3 flex-col justify-between p-5 h-28 rounded-[14px]'>
+        <div className='flex basis-1/3 bg-sky-1 flex-col justify-between p-5 h-28 rounded-[14px]'>
           fhsdjgbjsdbjkzdnj
         </div>
-        <div className='flex basis-1/3 bg-dark-3 flex-col justify-between p-5 h-28 rounded-[14px]'>
+        <div className='flex basis-1/3 bg-pink-3 flex-col justify-between p-5 h-28 rounded-[14px]'>
           fhsdjgbjsdbjkzdnj
         </div>
       </div>

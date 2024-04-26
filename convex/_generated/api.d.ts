@@ -16,6 +16,7 @@ import type {
 } from "convex/server";
 import type * as event from "../event.js";
 import type * as events from "../events.js";
+import type * as use_api_mutation from "../use-api-mutation.js";
 
 /**
  * A utility for referencing Convex functions in your app's API.
@@ -28,6 +29,7 @@ import type * as events from "../events.js";
 declare const fullApi: ApiFromModules<{
   event: typeof event;
   events: typeof events;
+  "use-api-mutation": typeof use_api_mutation;
 }>;
 export declare const api: FilterApi<
   typeof fullApi,
