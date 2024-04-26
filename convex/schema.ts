@@ -11,10 +11,9 @@ export default defineSchema({
         winner:v.string(),
         adminname:v.string(),
         numOfReg:v.number()
-    }).index("by_domain",["domain"])
+    }).index("by_title",["title"])
     .searchIndex("search_title",{
         searchField:"title",
-        filterFields:["domain"],
     }),
     
     scholarship:defineTable({

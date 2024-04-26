@@ -33,7 +33,7 @@ import {
 
 import { useMutation } from "convex/react"
 import { api } from "../../convex/_generated/api"
-import { useApiMutation } from "../../convex/use-api-mutation"
+import { useApiMutation } from "../../convex/useapimutation"
 
 
 export function AdminEvent() {

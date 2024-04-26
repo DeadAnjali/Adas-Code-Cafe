@@ -8,6 +8,7 @@ import Register from '@/components/Register'
 
 const Upcoming = () => {
   const data=useQuery(api.events.get);
+
   if(data==undefined){
     return <div className='text-white'>
       I am loading
@@ -19,12 +20,12 @@ const Upcoming = () => {
       <div className='flex flex-row gap-3'>
         <div className='flex basis-1/2 bg-dark-3 flex-col justify-between p-5 h-60 rounded-[14px]'>
               <h2 className="glassmorphism max-w-[240px] rounded py-2 text-center text-base font-normal">
-                {data[n-1].launchDate} to {data[n-1].endDate}
+                {data[0].launchDate} to {data[0].endDate}
               </h2>
               <div className="flex flex-col gap-2">
-                <h1 className="text-4xl font-extrabold lg:text-5xl">{data[n-1].title}</h1>
+                <h1 className="text-4xl font-extrabold lg:text-5xl">{data[0].title}</h1>
                 <div className='flex flex-row justify-between'>
-                    <p className="text-lg font-medium text-sky-1 lg:text-2xl">{data[n-1].domain}</p>
+                    <p className="text-lg font-medium text-sky-1 lg:text-2xl">{data[0].domain}</p>
                     <Register/>
                 </div>
                 

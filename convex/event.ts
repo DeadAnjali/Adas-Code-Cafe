@@ -1,4 +1,5 @@
 //api for events table communication
+import { toast } from "sonner";
 import { mutation } from "./_generated/server";
 import {v} from 'convex/values';
 
@@ -19,6 +20,10 @@ export const create =mutation({
         if(!identity){
             throw new Error("Unauthorised");
         }
+        // const uniquetitle = await ctx.db.query("events").filter((q) =>q.eq("title", args.title)).unique();
+        // if(uniquetitle!=undefined&& uniquetitle==null){
+        //     throw new Error("Title is same");
+        // }
         const event=ctx.db.insert("events",{
             title:args.title,
             domain:args.domain,
