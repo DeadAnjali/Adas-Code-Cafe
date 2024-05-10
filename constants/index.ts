@@ -26,7 +26,7 @@ export const sidebarLinks=[
     },
     {
         label:'Blogs',
-        route:'/blogs',
+        route:'/blogg',
         imgurl:'./icons/play.svg'
     },
     {
@@ -46,5 +46,10 @@ export const sidebarLinksAdmin=[
         route:'/admin/event',
         imgurl:'../icons/upcoming.svg'
     },
+    {
+        label:'Add Blog',
+        route:'/admin/blog',
+        imgurl:'../icons/previous.svg'
+    }
 ]
 

@@ -5,9 +5,19 @@ import { api } from '../../../../../convex/_generated/api'
 import { LoaderIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Register from '@/components/Register'
+import Event from '@/components/eventRow'
 
 const Upcoming = () => {
   const data=useQuery(api.events.get);
+  
+  //testing out leetcode api
+  async function getleetcode(username:string){
+    const leetcode=await fetch(`https://leetcodestats.cyclic.app/${username}`);
+    console.log(leetcode);
+    return leetcode;
+  }
+  getleetcode("anjalimahere15");
+  //testing out leetcode api
 
   if(data==undefined){
     return <div className='text-white'>
@@ -46,9 +56,16 @@ const Upcoming = () => {
               </div>
         </div>
       </div>
-      <div className='bg-dark-4 rounded-[14px]'>
-        fhjbsjv
-      </div>
+      <h1 className="text-lg font-medium text-sky-1 lg:text-2xl p-4">All Events</h1>
+      {data.map((item) => {
+          
+          return (
+            <Event
+            title={item.title}
+            endDate={item.endDate}
+             />
+          );
+        })}
     </section>
   )
 }
