@@ -3,6 +3,7 @@ import {AdminEvent} from '@/components/AdminEventCard'
 import { checkRole } from '@/utils/roles';
 import { redirect } from 'next/navigation';
 import { DialogDemo } from '@/components/AddEvent';
+import AddScholarship from '@/components/AddScholarship';
 
 const Event = () => {
   if (!checkRole("admin")) {
@@ -20,7 +21,7 @@ const Event = () => {
           fhsdjgbjsdbjkzdnj
         </div>
         <div className='flex basis-1/3 bg-pink-3 flex-col justify-between p-5 h-20 rounded-[14px]'>
-          fhsdjgbjsdbjkzdnj
+          <AddScholarship/>
         </div>
       </div>
       

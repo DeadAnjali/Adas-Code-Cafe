@@ -17,6 +17,8 @@ import type {
 import type * as event from "../event.js";
 import type * as eventfromid from "../eventfromid.js";
 import type * as events from "../events.js";
+import type * as getscholarship from "../getscholarship.js";
+import type * as scholarship from "../scholarship.js";
 import type * as useapimutation from "../useapimutation.js";
 
 /**
@@ -31,6 +33,8 @@ declare const fullApi: ApiFromModules<{
   event: typeof event;
   eventfromid: typeof eventfromid;
   events: typeof events;
+  getscholarship: typeof getscholarship;
+  scholarship: typeof scholarship;
   useapimutation: typeof useapimutation;
 }>;
 export declare const api: FilterApi<

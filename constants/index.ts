@@ -10,8 +10,8 @@ export const sidebarLinks=[
         imgurl:'./icons/upcoming.svg'
     },
     {
-        label:'Previous',
-        route:'/previous',
+        label:'Scholarships',
+        route:'/scholarship',
         imgurl:'./icons/previous.svg'
     },
     {
