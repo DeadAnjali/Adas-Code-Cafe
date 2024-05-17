@@ -11,12 +11,12 @@ const Upcoming = () => {
   const data=useQuery(api.events.get);
   
   //testing out leetcode api
-  async function getleetcode(username:string){
-    const leetcode=await fetch(`https://leetcodestats.cyclic.app/${username}`);
-    console.log(leetcode);
-    return leetcode;
-  }
-  getleetcode("anjalimahere15");
+  // async function getleetcode(username:string){
+  //   const leetcode=await fetch(`https://leetcodestats.cyclic.app/${username}`);
+  //   console.log(leetcode);
+  //   return leetcode;
+  // }
+  // getleetcode("anjalimahere15");
   //testing out leetcode api
 
   if(data==undefined){
